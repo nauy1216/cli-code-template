@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "dist",
+    "sourceMap": false,
+    "target": "ES5",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "types": ["node", "jest"],
+    "rootDir": ".",
+    "paths": {}
+  },
+  "include": ["src/**/*", "bin/**/*", "tests/**/*"]
+}
