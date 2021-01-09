@@ -13,9 +13,13 @@ export default function start() {
   commander
     .command("build <entry>")
     .description("build ")
-    .option("-t, --target <target>", "Build target (app | lib | wc | wc-async, default: app)")
-    .option("-n, --name <name>", "name for lib or web-component mode (default: entry filename)")
-    .option("-d, --dest <dir>", "output directory (default: dist)")
+    .action((entry, cmd) => {
+      build(entry);
+    });
+
+  commander
+    .command("init:eslint")
+    .description("init:eslint ")
     .action((entry, cmd) => {
       build(entry);
     });
