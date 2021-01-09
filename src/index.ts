@@ -1,5 +1,6 @@
 import commander from "commander";
-import createProject from "./createProject";
+import createProject from "./command/create";
+import build from "./command/build";
 
 export default function start() {
   commander
@@ -8,5 +9,13 @@ export default function start() {
     .action((name, cmd) => {
       createProject(name, {});
     });
+
+  commander
+    .command("build <entry>")
+    .description("build ")
+    .action((entry, cmd) => {
+      build(entry);
+    });
+
   commander.parse(process.argv);
 }

@@ -3,8 +3,8 @@ import fs from "fs-extra";
 import inquirer from "inquirer";
 import download from "download-git-repo";
 // import { spawn } from "child_process";
-import Logger from "./utils/logger";
-import Spinner from "./utils/spinner";
+import Logger from "../../utils/logger";
+import Spinner from "../../utils/spinner";
 
 async function create(projectName: string, options: any) {
   const cwd = options.cwd || process.cwd();

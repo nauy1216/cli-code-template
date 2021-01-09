@@ -18,7 +18,9 @@
     "lib": ["esnext", "dom"],
     "types": ["node", "jest"],
     "rootDir": ".",
-    "paths": {}
+    "paths": {
+      // "src/**/*": ["./src/**/*"]
+    }
   },
   "include": ["src/**/*", "bin/**/*", "tests/**/*"]
 }
