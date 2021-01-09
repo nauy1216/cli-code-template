@@ -1,22 +1,3 @@
-// import inquirer from "inquirer";
-
-// const promptList = [
-//   {
-//     type: "checkbox",
-//     message: "选择项目模板",
-//     name: "template",
-//     choices: [
-//       {
-//         title: "a"
-//       }
-//     ]
-//   }
-// ];
-
-// export default function start() {
-//   inquirer.prompt(promptList).then(() => {});
-// }
-
 import commander from "commander";
 import createProject from "./createProject";
 
