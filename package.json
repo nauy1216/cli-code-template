@@ -11,7 +11,7 @@
     "bin/**/*"
   ],
   "bin": {
-    "generate-code-template": "bin/generate-code-template.js"
+    "gct": "bin/generate-code-template.js"
   },
   "scripts": {
     "init": "tsc --init",
