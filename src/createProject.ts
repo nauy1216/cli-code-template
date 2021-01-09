@@ -1,9 +1,10 @@
 import path from "path";
 import fs from "fs-extra";
 import inquirer from "inquirer";
-// import download from "download-git-repo";
-import { spawn } from "child_process";
+import download from "download-git-repo";
+// import { spawn } from "child_process";
 import Logger from "./utils/logger";
+import Spinner from "./utils/spinner";
 
 async function create(projectName: string, options: any) {
   const cwd = options.cwd || process.cwd();
@@ -37,15 +38,13 @@ async function create(projectName: string, options: any) {
   ];
   const { template } = await inquirer.prompt(promptList);
 
-  await new Promise((resolve, reject) => {
-    const download = spawn(`git`, [`clone`, `https://github.com/nauy1216/${template}.git`, `./${projectName}`]);
-
-    download.stdout.on("data", function (data) {
-      Logger.info("stdout: " + data);
-    });
-
-    download.stderr.on("data", function (data) {
-      Logger.info("stderr: " + data);
+  await new Promise<void>((resolve, reject) => {
+    Spinner.logWithSpinner("fetch", "正在下载, 请稍等...");
+    download(`nauy1216/${template}`, `./${projectName}`, { clone: false }, err => {
+      Spinner.stopSpinner(false);
+      if (err) return reject(err);
+      Logger.info(`下载成功.`);
+      resolve();
     });
   });
 }
