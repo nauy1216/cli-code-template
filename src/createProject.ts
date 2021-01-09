@@ -1,15 +1,16 @@
 import path from "path";
 import fs from "fs-extra";
 import inquirer from "inquirer";
+// import download from "download-git-repo";
+import { spawn } from "child_process";
+import Logger from "./utils/logger";
 
 async function create(projectName: string, options: any) {
   const cwd = options.cwd || process.cwd();
-  const inCurrent = projectName === ".";
-  const name = inCurrent ? path.relative("../", cwd) : projectName;
   const targetDir = path.resolve(cwd, projectName || ".");
 
   if (fs.existsSync(targetDir)) {
-    console.log(`文件${targetDir}已存在`);
+    Logger.info(`文件${targetDir}已存在`);
     return;
   }
 
@@ -34,9 +35,18 @@ async function create(projectName: string, options: any) {
       ]
     }
   ];
+  const { template } = await inquirer.prompt(promptList);
 
-  inquirer.prompt(promptList).then(answer => {
-    console.log(answer);
+  await new Promise((resolve, reject) => {
+    const download = spawn(`git`, [`clone`, `https://github.com/nauy1216/${template}.git`, `./${projectName}`]);
+
+    download.stdout.on("data", function (data) {
+      Logger.info("stdout: " + data);
+    });
+
+    download.stderr.on("data", function (data) {
+      Logger.info("stderr: " + data);
+    });
   });
 }
 
