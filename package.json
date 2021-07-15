@@ -1,9 +1,9 @@
 {
-  "name": "generate-code-template",
-  "version": "1.0.3",
-  "description": "generate-code-template",
+  "name": "cli-code-template",
+  "version": "0.0.1",
+  "description": "cli-code-template",
   "main": "lib/index.esm.js",
-  "repository": "https://github.com/nauy1216/jschain.git",
+  "repository": "https://github.com/nauy1216/cli-code-template.git",
   "author": "liuchengyuan",
   "license": "MIT",
   "files": [
@@ -15,12 +15,11 @@
   },
   "scripts": {
     "init": "tsc --init",
-    "tsc": "tsc -w",
-    "dev": "rollup -c -w",
+    "dev": "tsc -w",
+    "build": "tsc",
     "test": "jest --runInBand",
     "lint": "eslint --ext .ts src/*/** --fix",
-    "format": "prettier --write --parser typescript \"src/**/*.ts?(x)\" \"tests/**/*.ts?(x)\"",
-    "build": "rollup -c"
+    "format": "prettier --write --parser typescript \"src/**/*.ts?(x)\" \"tests/**/*.ts?(x)\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

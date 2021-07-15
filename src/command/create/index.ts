@@ -5,6 +5,7 @@ import download from "download-git-repo";
 // import { spawn } from "child_process";
 import Logger from "../../utils/logger";
 import Spinner from "../../utils/spinner";
+import { TemplateList } from "./template-list";
 
 async function create(projectName: string, options: any) {
   const cwd = options.cwd || process.cwd();
@@ -20,20 +21,7 @@ async function create(projectName: string, options: any) {
       type: "list",
       message: "选择项目模板",
       name: "template",
-      choices: [
-        {
-          name: "template-vue-typescript"
-        },
-        {
-          name: "template-vue-ts-option"
-        },
-        {
-          name: "template-react-ts"
-        },
-        {
-          name: "template-uniapp-ts"
-        }
-      ]
+      choices: TemplateList
     }
   ];
   const { template } = await inquirer.prompt(promptList);
