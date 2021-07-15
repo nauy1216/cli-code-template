@@ -1,44 +1,44 @@
-import path from "path";
-import Logger from "../../utils/logger";
-import webpack from "webpack";
-import VueLoaderPlugin from "vue-loader/lib/plugin";
+import path from 'path'
+import Logger from '../../utils/logger'
+import webpack from 'webpack'
+import VueLoaderPlugin from 'vue-loader/lib/plugin'
 
 export default function build(entry: string) {
-  const entryPath = path.resolve(process.cwd(), entry);
-  Logger.info(entry);
+  const entryPath = path.resolve(process.cwd(), entry)
+  Logger.info(entry)
 
   const compiler = webpack({
-    mode: "development",
-    devtool: "source-map",
+    mode: 'development',
+    devtool: 'source-map',
     entry: {
       [entry]: entryPath
     },
     output: {
-      filename: `[name].js`,
-      path: path.resolve(process.cwd(), "dist")
+      filename: '[name].js',
+      path: path.resolve(process.cwd(), 'dist')
     },
     module: {
       rules: [
         {
           test: /\.vue$/,
-          use: "vue-loader"
+          use: 'vue-loader'
         },
         {
           test: /\.js$/,
-          loader: "babel-loader"
+          loader: 'babel-loader'
         },
         {
           test: /\.css$/,
-          use: ["vue-style-loader", "css-loader"]
+          use: ['vue-style-loader', 'css-loader']
         }
       ]
     },
     plugins: [new VueLoaderPlugin()]
-  });
+  })
 
-  compiler.run(stats => {
+  compiler.run((stats) => {
     if (!stats) {
-      Logger.info("build success.");
+      Logger.info('build success.')
     }
-  });
+  })
 }

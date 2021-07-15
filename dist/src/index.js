@@ -8,20 +8,20 @@ var create_1 = __importDefault(require("./command/create"));
 var build_1 = __importDefault(require("./command/build"));
 function start() {
     commander_1.default
-        .command("create <app-name>")
-        .description("create a new project")
+        .command('create <app-name>')
+        .description('create a new project')
         .action(function (name, cmd) {
         create_1.default(name, {});
     });
     commander_1.default
-        .command("build <entry>")
-        .description("build ")
+        .command('build <entry>')
+        .description('build ')
         .action(function (entry, cmd) {
         build_1.default(entry);
     });
     commander_1.default
-        .command("init:eslint")
-        .description("init:eslint ")
+        .command('init:eslint')
+        .description('init:eslint ')
         .action(function (entry, cmd) {
         build_1.default(entry);
     });

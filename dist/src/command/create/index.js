@@ -54,16 +54,16 @@ function create(projectName, options) {
             switch (_a.label) {
                 case 0:
                     cwd = options.cwd || process.cwd();
-                    targetDir = path_1.default.resolve(cwd, projectName || ".");
+                    targetDir = path_1.default.resolve(cwd, projectName || '.');
                     if (fs_extra_1.default.existsSync(targetDir)) {
                         logger_1.default.info("\u6587\u4EF6" + targetDir + "\u5DF2\u5B58\u5728");
                         return [2 /*return*/];
                     }
                     promptList = [
                         {
-                            type: "list",
-                            message: "选择项目模板",
-                            name: "template",
+                            type: 'list',
+                            message: '选择项目模板',
+                            name: 'template',
                             choices: template_list_1.TemplateList
                         }
                     ];
@@ -71,12 +71,12 @@ function create(projectName, options) {
                 case 1:
                     template = (_a.sent()).template;
                     return [4 /*yield*/, new Promise(function (resolve, reject) {
-                            spinner_1.default.logWithSpinner("fetch", "正在下载, 请稍等...");
+                            spinner_1.default.logWithSpinner('fetch', '正在下载, 请稍等...');
                             download_git_repo_1.default("nauy1216/" + template, "./" + projectName, { clone: false }, function (err) {
                                 spinner_1.default.stopSpinner(false);
                                 if (err)
                                     return reject(err);
-                                logger_1.default.info("\u4E0B\u8F7D\u6210\u529F.");
+                                logger_1.default.info('下载成功.');
                                 resolve();
                             });
                         })];

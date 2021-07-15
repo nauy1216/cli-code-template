@@ -3,25 +3,25 @@
     "baseUrl": ".",
     "outDir": "dist",
     "sourceMap": false,
-    "target": "ES5",
-    "module": "CommonJS",
+    "target": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "allowJs": true,
+    "allowJs": false,
     "strict": true,
     "noUnusedLocals": true,
     "experimentalDecorators": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "removeComments": false,
-    "noImplicitAny": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
     "types": ["node", "jest"],
     "rootDir": ".",
     "paths": {
-      // "src/**/*": ["./src/**/*"]
     }
   },
-  "include": ["src/**/*"],
-  "exclude": ["dist/**/*"]
+  "include": [
+    "src/**/*", 
+    "tests/**/*"
+  ]
 }

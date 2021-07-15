@@ -12,7 +12,7 @@ var isPaused = false;
 var logWithSpinner = function (symbol, msg) {
     if (!msg) {
         msg = symbol;
-        symbol = chalk_1.default.green("✔");
+        symbol = chalk_1.default.green('✔');
     }
     if (lastMsg) {
         spinner.stopAndPersist({
@@ -20,9 +20,9 @@ var logWithSpinner = function (symbol, msg) {
             text: lastMsg.text
         });
     }
-    spinner.text = " " + msg;
+    spinner.text = ' ' + msg;
     lastMsg = {
-        symbol: symbol + " ",
+        symbol: symbol + ' ',
         text: msg
     };
     spinner.start();

@@ -12,28 +12,28 @@ function build(entry) {
     var entryPath = path_1.default.resolve(process.cwd(), entry);
     logger_1.default.info(entry);
     var compiler = webpack_1.default({
-        mode: "development",
-        devtool: "source-map",
+        mode: 'development',
+        devtool: 'source-map',
         entry: (_a = {},
             _a[entry] = entryPath,
             _a),
         output: {
-            filename: "[name].js",
-            path: path_1.default.resolve(process.cwd(), "dist")
+            filename: '[name].js',
+            path: path_1.default.resolve(process.cwd(), 'dist')
         },
         module: {
             rules: [
                 {
                     test: /\.vue$/,
-                    use: "vue-loader"
+                    use: 'vue-loader'
                 },
                 {
                     test: /\.js$/,
-                    loader: "babel-loader"
+                    loader: 'babel-loader'
                 },
                 {
                     test: /\.css$/,
-                    use: ["vue-style-loader", "css-loader"]
+                    use: ['vue-style-loader', 'css-loader']
                 }
             ]
         },
@@ -41,7 +41,7 @@ function build(entry) {
     });
     compiler.run(function (stats) {
         if (!stats) {
-            logger_1.default.info("build success.");
+            logger_1.default.info('build success.');
         }
     });
 }
