@@ -11,7 +11,7 @@
     "bin/**/*"
   ],
   "bin": {
-    "gct": "bin/generate-code-template.js"
+    "ergo": "bin/ergo.js"
   },
   "scripts": {
     "init": "tsc --init",
