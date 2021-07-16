@@ -9,7 +9,7 @@ var build_1 = __importDefault(require("./command/build"));
 function start() {
     commander_1.default
         .command('create <app-name>')
-        .description('create a new project')
+        .description('根据项目模版创建新的项目')
         .action(function (name, cmd) {
         create_1.default(name, {});
     });
