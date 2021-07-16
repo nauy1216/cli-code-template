@@ -7,7 +7,7 @@
   "author": "liuchengyuan",
   "license": "MIT",
   "files": [
-    "packages/ergo/dist/**/*",
+    "packages/**/*",
     "bin/**/*"
   ],
   "bin": {
@@ -15,6 +15,7 @@
   },
   "scripts": {
     "start": "lerna bootstrap",
+    "postinstall": "lerna bootstrap",
     "dev": "lerna run dev"
   },
   "devDependencies": {
