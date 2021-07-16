@@ -7,15 +7,19 @@
   "author": "liuchengyuan",
   "license": "MIT",
   "files": [
-    "packages/ergo/dist/**/*",
+    "dist/**/*",
     "bin/**/*"
   ],
   "bin": {
     "ergo": "bin/ergo.js"
   },
   "scripts": {
-    "start": "lerna bootstrap",
-    "dev": "lerna run dev"
+    "init": "tsc --init",
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "jest --runInBand",
+    "lint": "eslint --ext .ts src --fix",
+    "format": "prettier --write --parser typescript \"src/**/*.ts?(x)\" \"tests/**/*.ts?(x)\""
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",

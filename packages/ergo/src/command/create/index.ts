@@ -10,7 +10,7 @@ import { TemplateList } from './template-list'
 async function create(projectName: string, options: any) {
   const cwd = options.cwd || process.cwd()
   const targetDir = path.resolve(cwd, projectName || '.')
-
+  console.log('targetDir', targetDir, cwd)
   if (fs.existsSync(targetDir)) {
     Logger.info(`文件${targetDir}已存在`)
     return
@@ -28,12 +28,17 @@ async function create(projectName: string, options: any) {
 
   await new Promise<void>((resolve, reject) => {
     Spinner.logWithSpinner('fetch', '正在下载, 请稍等...')
-    download(`nauy1216/${template}`, `./${projectName}`, { clone: false }, err => {
-      Spinner.stopSpinner(false)
-      if (err) return reject(err)
-      Logger.info('下载成功.')
-      resolve()
-    })
+    download(
+      `nauy1216/${template}`,
+      `./${projectName}`,
+      { clone: false },
+      (err) => {
+        Spinner.stopSpinner(false)
+        if (err) return reject(err)
+        Logger.info('下载成功.')
+        resolve()
+      }
+    )
   })
 }
 

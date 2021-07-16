@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require("../dist/src/index").default();
+require("../packages/ergo/dist/src/index").default();

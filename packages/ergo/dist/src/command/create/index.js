@@ -55,6 +55,7 @@ function create(projectName, options) {
                 case 0:
                     cwd = options.cwd || process.cwd();
                     targetDir = path_1.default.resolve(cwd, projectName || '.');
+                    console.log('targetDir', targetDir, cwd);
                     if (fs_extra_1.default.existsSync(targetDir)) {
                         logger_1.default.info("\u6587\u4EF6" + targetDir + "\u5DF2\u5B58\u5728");
                         return [2 /*return*/];

@@ -1,0 +1,9 @@
+.vscode/**
+*.js
+example
+dist
+example
+node_modules
+src/config/**
+
+

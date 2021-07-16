@@ -22,7 +22,7 @@ function start() {
     });
     commander_1.default
         .command('build <entry>')
-        .description('build ')
+        .description('打包构建')
         .action(function (entry, cmd) {
         build_1.default(entry);
     });

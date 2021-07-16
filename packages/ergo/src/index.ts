@@ -20,7 +20,7 @@ export default function start() {
 
   commander
     .command('build <entry>')
-    .description('build ')
+    .description('打包构建')
     .action((entry, cmd) => {
       build(entry)
     })
