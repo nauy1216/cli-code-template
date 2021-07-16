@@ -1,6 +1,7 @@
 import commander from 'commander'
 import createProject from './command/create'
 import build from './command/build'
+import dev from './command/dev'
 
 export default function start() {
   commander
@@ -8,6 +9,13 @@ export default function start() {
     .description('根据项目模版创建新的项目')
     .action((name, cmd) => {
       createProject(name, {})
+    })
+
+  commander
+    .command('dev <frame>')
+    .description('启动开发服务，<frame>框架类型[react|vue]')
+    .action((frame, cmd) => {
+      dev(frame)
     })
 
   commander
