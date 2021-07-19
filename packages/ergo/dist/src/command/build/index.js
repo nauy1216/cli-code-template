@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
-var logger_1 = __importDefault(require("../../utils1/logger"));
+var ergo_shared_1 = require("ergo-shared");
 var webpack_1 = __importDefault(require("webpack"));
 var plugin_1 = __importDefault(require("vue-loader/lib/plugin"));
 function build(entry) {
     var _a;
     var entryPath = path_1.default.resolve(process.cwd(), entry);
-    logger_1.default.info(entry);
+    ergo_shared_1.Logger.info(entry);
     var compiler = webpack_1.default({
         mode: 'development',
         devtool: 'source-map',
@@ -41,7 +41,7 @@ function build(entry) {
     });
     compiler.run(function (stats) {
         if (!stats) {
-            logger_1.default.info('build success.');
+            ergo_shared_1.Logger.info('build success.');
         }
     });
 }
