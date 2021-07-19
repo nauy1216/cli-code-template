@@ -1,7 +1,7 @@
 {
-  "name": "cli-code-template",
+  "name": "ergo-code-template",
   "version": "1.0.0",
-  "description": "cli-code-template",
+  "description": "code-template",
   "main": "lib/index.esm.js",
   "repository": "https://github.com/nauy1216/cli-code-template.git",
   "author": "liuchengyuan",
@@ -51,7 +51,6 @@
     "typescript": "^4.1.2"
   },
   "dependencies": {
-    "ergo-shared": "^1.0.0",
     "@types/fs-extra": "^9.0.6",
     "babel-loader": "^8.2.2",
     "chalk": "^4.1.0",

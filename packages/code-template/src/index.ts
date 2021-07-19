@@ -6,7 +6,7 @@ import dev from './command/dev'
 export default function start() {
   commander
     .command('create <app-name>')
-    .description('根据项目模版创建新的项目11')
+    .description('根据项目模版创建新的项目')
     .action((name, cmd) => {
       createProject(name, {})
     })

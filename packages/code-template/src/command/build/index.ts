@@ -1,5 +1,5 @@
 import path from 'path'
-import Logger from '../../utils1/logger'
+import Logger from '../../utils/logger'
 import webpack from 'webpack'
 import VueLoaderPlugin from 'vue-loader/lib/plugin'
 
