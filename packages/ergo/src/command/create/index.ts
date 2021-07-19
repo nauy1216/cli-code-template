@@ -2,13 +2,11 @@ import path from 'path'
 import fs from 'fs-extra'
 import inquirer from 'inquirer'
 import download from 'download-git-repo'
-// import { spawn } from "child_process";
-// import Logger from '../../utils1/logger'
-// import Spinner from '../../utils1/spinner'
 import { Logger, Spinner } from 'ergo-shared'
 import { TemplateList } from './template-list'
 
 async function create(projectName: string, options: any) {
+  console.log('ergo ----> create')
   const cwd = options.cwd || process.cwd()
   const targetDir = path.resolve(cwd, projectName || '.')
   console.log('targetDir', targetDir, cwd)

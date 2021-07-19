@@ -43,9 +43,7 @@ var path_1 = __importDefault(require("path"));
 var fs_extra_1 = __importDefault(require("fs-extra"));
 var inquirer_1 = __importDefault(require("inquirer"));
 var download_git_repo_1 = __importDefault(require("download-git-repo"));
-// import { spawn } from "child_process";
-var logger_1 = __importDefault(require("../../utils/logger"));
-var spinner_1 = __importDefault(require("../../utils/spinner"));
+var ergo_shared_1 = require("ergo-shared");
 var template_list_1 = require("./template-list");
 function create(projectName, options) {
     return __awaiter(this, void 0, void 0, function () {
@@ -53,11 +51,12 @@ function create(projectName, options) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    console.log('ergo ----> create');
                     cwd = options.cwd || process.cwd();
                     targetDir = path_1.default.resolve(cwd, projectName || '.');
                     console.log('targetDir', targetDir, cwd);
                     if (fs_extra_1.default.existsSync(targetDir)) {
-                        logger_1.default.info("\u6587\u4EF6" + targetDir + "\u5DF2\u5B58\u5728");
+                        ergo_shared_1.Logger.info("\u6587\u4EF6" + targetDir + "\u5DF2\u5B58\u5728");
                         return [2 /*return*/];
                     }
                     promptList = [
@@ -72,12 +71,12 @@ function create(projectName, options) {
                 case 1:
                     template = (_a.sent()).template;
                     return [4 /*yield*/, new Promise(function (resolve, reject) {
-                            spinner_1.default.logWithSpinner('fetch', '正在下载, 请稍等...');
+                            ergo_shared_1.Spinner.logWithSpinner('fetch', '正在下载, 请稍等...');
                             download_git_repo_1.default("nauy1216/" + template, "./" + projectName, { clone: false }, function (err) {
-                                spinner_1.default.stopSpinner(false);
+                                ergo_shared_1.Spinner.stopSpinner(false);
                                 if (err)
                                     return reject(err);
-                                logger_1.default.info('下载成功.');
+                                ergo_shared_1.Logger.info('下载成功.');
                                 resolve();
                             });
                         })];

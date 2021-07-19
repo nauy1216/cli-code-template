@@ -1,8 +1,9 @@
 {
-  "name": "cli-code-template",
+  "name": "ergo",
   "version": "1.0.0",
-  "description": "cli-code-template",
-  "main": "lib/index.esm.js",
+  "description": "ergo",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "repository": "https://github.com/nauy1216/cli-code-template.git",
   "author": "liuchengyuan",
   "license": "MIT",
@@ -10,9 +11,6 @@
     "dist/**/*",
     "bin/**/*"
   ],
-  "bin": {
-    "ergo": "bin/ergo.js"
-  },
   "scripts": {
     "init": "tsc --init",
     "dev": "tsc -w",

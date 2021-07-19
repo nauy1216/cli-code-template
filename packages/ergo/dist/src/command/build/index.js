@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path_1 = __importDefault(require("path"));
-var logger_1 = __importDefault(require("../../utils/logger"));
+var logger_1 = __importDefault(require("../../utils1/logger"));
 var webpack_1 = __importDefault(require("webpack"));
 var plugin_1 = __importDefault(require("vue-loader/lib/plugin"));
 function build(entry) {

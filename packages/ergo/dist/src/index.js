@@ -10,7 +10,7 @@ var dev_1 = __importDefault(require("./command/dev"));
 function start() {
     commander_1.default
         .command('create <app-name>')
-        .description('根据项目模版创建新的项目')
+        .description('根据项目模版创建新的项目11')
         .action(function (name, cmd) {
         create_1.default(name, {});
     });
