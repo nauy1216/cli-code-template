@@ -51,7 +51,7 @@ function create(projectName, options) {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    console.log('ergo ----> create');
+                    console.log('ergo ----> create123');
                     cwd = options.cwd || process.cwd();
                     targetDir = path_1.default.resolve(cwd, projectName || '.');
                     console.log('targetDir', targetDir, cwd);

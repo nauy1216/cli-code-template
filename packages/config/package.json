@@ -1,0 +1,20 @@
+{
+  "name": "ergo-config",
+  "version": "1.0.0",
+  "description": "ergo-config",
+  "repository": "https://github.com/nauy1216/cli-code-template.git",
+  "author": "liuchengyuan",
+  "license": "MIT",
+  "files": [
+    "dist/**/*",
+    "bin/**/*"
+  ],
+  "scripts": {
+    "lint": "eslint --ext .ts src --fix",
+    "format": "prettier --write --parser typescript \"src/**/*.ts?(x)\" \"tests/**/*.ts?(x)\""
+  },
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}

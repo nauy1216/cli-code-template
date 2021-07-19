@@ -5,7 +5,7 @@ import replace from '@rollup/plugin-replace'
 import json from '@rollup/plugin-json'
 const args = require('minimist')(process.argv.slice(2))
 
-const packageOptions =  {}
+const packageOptions = {}
 const name = 'index'
 const isProduct = true
 
@@ -19,17 +19,19 @@ const outputConfigs = {
     format: `cjs`
   },
   global: {
-    file:  `lib/${name}.global.js`,
+    file: `lib/${name}.global.js`,
     format: `iife`
   }
 }
 const packageFormats = Object.keys(outputConfigs)
 
-const packageConfigs =  packageFormats.map(format => createConfig(format, outputConfigs[format]))
+const packageConfigs = packageFormats.map((format) =>
+  createConfig(format, outputConfigs[format])
+)
 
 // 生产环境
 if (isProduct) {
-  packageFormats.forEach(format => {
+  packageFormats.forEach((format) => {
     if (format === 'cjs') {
       packageConfigs.push(createProductionConfig(format))
     }
@@ -69,7 +71,7 @@ function createConfig(format, output, plugins = []) {
     }
   })
 
-  output.globals = { }
+  output.globals = {}
 
   const nodePlugins =
     format !== 'cjs'
@@ -110,12 +112,10 @@ function createConfig(format, output, plugins = []) {
 }
 
 function createReplacePlugin() {
-  const replacements = {
- 
-  }
+  const replacements = {}
   // allow inline overrides like
   //__RUNTIME_COMPILE__=true yarn build runtime-core
-  Object.keys(replacements).forEach(key => {
+  Object.keys(replacements).forEach((key) => {
     if (key in process.env) {
       replacements[key] = process.env[key]
     }

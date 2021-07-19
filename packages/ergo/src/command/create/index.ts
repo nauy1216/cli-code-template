@@ -6,7 +6,7 @@ import { Logger, Spinner } from 'ergo-shared'
 import { TemplateList } from './template-list'
 
 async function create(projectName: string, options: any) {
-  console.log('ergo ----> create')
+  console.log('ergo ----> create123')
   const cwd = options.cwd || process.cwd()
   const targetDir = path.resolve(cwd, projectName || '.')
   console.log('targetDir', targetDir, cwd)
